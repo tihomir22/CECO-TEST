@@ -1,0 +1,24 @@
+<div class="card text-left" *ngIf="productoRecibido">
+  <div class="contenedorAcciones">
+    <a class="btn btn-primary expandir-flex mx-2 mt-2" role="button" *ngFor="let item of [1, 2, 3]"
+      >X</a
+    >
+  </div>
+  <img class="card-img-top" [src]="productoRecibido.image" />
+  <div class="card-body">
+    <h4 class="card-title">{{ productoRecibido.title }}</h4>
+    <p class="card-text">
+      {{
+        productoRecibido.description | textLimit: textLimitForPipeActualValue
+      }}
+      <a
+        href="javascript:;"
+        (click)="toggleMostrarMasMostrarMenos()"
+        *ngIf="
+          productoRecibido.description.length > textLimitForPipeActualValue
+        "
+        >{{ estamosMostrandoMas() ? "Mostrar más" : "Mostrar menos" }}</a
+      >
+    </p>
+  </div>
+</div>

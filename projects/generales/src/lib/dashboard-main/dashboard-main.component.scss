@@ -1,0 +1,29 @@
+@import "../styling/mixins.scss";
+
+.sidebarMain {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  .sidebarList {
+    width: 20vh;
+    position: sticky;
+    @include ocultarSiMovil;
+  }
+
+  .mainContent {
+    width: calc(100% - 20vh);
+    height: 100%;
+    @media (min-width: 320px) and (max-width: 480px) {
+      width: 100%;
+    }
+    .productList {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .productThumb {
+        max-width: 30vh;
+        padding: 5px 10px;
+      }
+    }
+  }
+}

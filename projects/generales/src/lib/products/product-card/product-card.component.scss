@@ -1,0 +1,14 @@
+@import "../../../../src/lib/styling/variables.scss";
+
+h4 {
+  font-size: 1rem;
+  color: $ternaryColor;
+}
+
+.contenedorAcciones {
+  display: flex;
+  flex-direction: row;
+  .expandir-flex {
+    flex: 1 1 auto !important;
+  }
+}

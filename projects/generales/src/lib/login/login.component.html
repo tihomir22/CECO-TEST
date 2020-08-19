@@ -1,0 +1,28 @@
+<div class="formLoginFlexContainer">
+  <div class="inlineImgLogo">
+    <img src="assets/buy.png" alt="Imagen logo compra" />
+  </div>
+  <div class="belowLogoText">
+    <span>Lets do it</span>
+  </div>
+
+  <div class="formLogin">
+    <div class="form-group w-100">
+      <div *ngFor="let campo of camposDeEntradaLogin">
+        <label [for]="campo.formInputName"></label>
+        <input
+          [type]="campo.type"
+          class="form-control"
+          [name]="campo.formInputName"
+          [placeholder]="campo.formControlPlaceholder"
+        />
+      </div>
+    </div>
+    <button
+      type="button"
+      class="btn btn-ternary btn-lg btn-block submittingButton"
+    >
+      <i class="fa fa-sign-in" aria-hidden="true"></i> Entrar
+    </button>
+  </div>
+</div>
