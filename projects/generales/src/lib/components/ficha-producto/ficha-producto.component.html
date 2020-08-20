@@ -1,0 +1,89 @@
+<div class="loadingComp" *ngIf="cargandoDatos">
+  <div>
+    <div class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    Cargando...
+  </div>
+</div>
+
+<div class="contenedorFlexProducto">
+  <div>
+    <img class="img-fluid" src="{{ formGroupProducto.value.image }}" alt="" />
+  </div>
+
+  <div
+    class="form-group p-3"
+    [formGroup]="formGroupProducto"
+    id="formGroupProduct"
+  >
+    <div>
+      <label for="formGroupID">ID</label>
+      <input
+        type="number"
+        class="form-control"
+        id="formGroupID"
+        placeholder="Identificador"
+        formControlName="id"
+      />
+      <label for="formGroupTitle">Nombre</label>
+      <input
+        type="text"
+        id="formGroupTitle"
+        class="form-control"
+        placeholder="Nombre del producto"
+        formControlName="title"
+      />
+      <label for="formGroupDesc">Descripción</label>
+      <textarea
+        type="text"
+        id="formGroupDesc"
+        class="form-control"
+        placeholder="Descripción del producto"
+        formControlName="description"
+      ></textarea>
+
+      <label for="formGroupPrecio">Precio en €</label>
+      <input
+        type="number"
+        id="formGroupPrecio"
+        class="form-control"
+        placeholder="Precio"
+        formControlName="precio"
+      />
+      <div>
+        <label for="formGroupImagen">Imagen del producto</label>
+      </div>
+      <input
+        name="imageUrl"
+        type="file"
+        id="formGroupImagen"
+        accept="image/*"
+        (change)="handleImageChange($event)"
+      />
+    </div>
+    <div class="d-flex text-white mt-2">
+      <button
+        type="button"
+        class="btn btn-primary flex-fill mx-2"
+        (click)="esNuevo() ? guardarNuevo() : guardarCambios()"
+      >
+        <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary flex-fill mx-2"
+        (click)="nuevo()"
+      >
+        <i class="fa fa-plus" aria-hidden="true"></i> Nuevo
+      </button>
+      <button
+        type="button"
+        class="btn btn-ternary flex-fill mx-2"
+        (click)="eliminarProducto()"
+      >
+        <i class="fa fa-ban" aria-hidden="true"></i> Eliminar
+      </button>
+    </div>
+  </div>
+</div>

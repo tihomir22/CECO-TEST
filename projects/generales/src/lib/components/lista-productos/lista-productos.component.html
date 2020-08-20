@@ -1,0 +1,18 @@
+<div class="badge badge-pill badge-primary m-2">
+  Mostrando los 6 productos más vendidos
+  <span
+    class="closebtn"
+    onclick="this.parentElement.style.display='none'"
+    (click)="quitarLimitePorPagina()"
+    >&times;</span
+  >
+</div>
+
+<div class="productList">
+  <div class="productThumb" *ngFor="let product of trendingProducts">
+    <lib-product-card
+      [inputProducto]="product"
+      (refrescarProductos)="loadTrendingProducts()"
+    ></lib-product-card>
+  </div>
+</div>

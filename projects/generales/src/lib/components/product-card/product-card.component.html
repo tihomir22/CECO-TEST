@@ -1,0 +1,34 @@
+<div class="card text-left cardProducto" *ngIf="productoRecibido">
+  <div class="contenedorAcciones">
+    <a
+      *ngFor="let accion of accionesProducto"
+      class="btn btn-{{
+        accion.color ? accion.color : 'primary'
+      }} expandir-flex mx-2 mt-2"
+      role="button"
+      (click)="accion.action()"
+      ><i
+        class="fa fa-{{ accion.icon }}"
+        aria-hidden="true"
+        *ngIf="accion.icon"
+      ></i
+    ></a>
+  </div>
+  <img class="card-img-top" [src]="productoRecibido.image" />
+  <div class="card-body">
+    <h4 class="card-title">{{ productoRecibido.title }}</h4>
+    <p class="card-text">
+      {{
+        productoRecibido.description | textLimit: textLimitForPipeActualValue
+      }}
+      <a
+        href="javascript:;"
+        (click)="toggleMostrarMasMostrarMenos()"
+        *ngIf="
+          productoRecibido.description.length > textLimitForPipeActualValue
+        "
+        >{{ estamosMostrandoMas() ? "Mostrar más" : "Mostrar menos" }}</a
+      >
+    </p>
+  </div>
+</div>

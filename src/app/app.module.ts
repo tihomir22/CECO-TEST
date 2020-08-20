@@ -7,6 +7,10 @@ import { LoginWrapperComponent } from "./login-wrapper/login-wrapper.component";
 import { GeneralesModule } from "projects/generales/src/public-api";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+
+import * as bootstrap from "bootstrap";
+import * as $AB from "jquery";
+import { RouterModule } from "@angular/router";
 @NgModule({
   declarations: [AppComponent, LoginWrapperComponent],
   imports: [
@@ -14,6 +18,7 @@ import { HttpClientModule } from "@angular/common/http";
     GeneralesModule,
     AppRoutingModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],
